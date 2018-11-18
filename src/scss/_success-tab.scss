@@ -1,0 +1,112 @@
+section.success-tab {
+  text-align: center;
+
+  header {
+    h4 {
+      @extend .underlined-title;
+      margin-top: 0px;
+      text-align: left;
+    }
+  }
+
+  & > div:first-of-type {
+    font-size: calc(26 / 16 * 100%);
+    border-bottom: 1px solid #f2f2f2;
+    padding: 15px 0px;
+  }
+  
+  & > div:nth-of-type(2) {
+    padding: 25px 0px 35px;
+    color: #accf29;
+    font-size: calc(42 / 16 * 100%);
+    font-weight: 900;
+  }
+  
+  & > div:nth-of-type(3) {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #f2f2f2;
+    padding-bottom: 40px;
+
+    button {
+      @extend .default-button-style;
+      font-size: calc(26 / 16 * 100%);
+      padding-top: 14px;
+      padding-bottom: 14px;
+      
+      &:first-child{
+        @extend .dark-button;
+        background-color: #f2f2f2;
+        color: #888;
+        flex: 1;
+        margin-right: 60px;
+        font-weight: 400;
+        
+        &:hover{
+          background-color: #ccc;
+        }
+      }
+      
+      &:last-child{
+        @extend .green-button;
+        flex: 3;
+      }
+    }
+  }
+
+  & > div:nth-of-type(4) {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 40px;
+
+    div{
+      color: #888;
+      position: relative;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+
+      svg{
+        margin-right: 10px;
+        display: inline-block;
+      }
+    }
+
+  }
+
+  & > div:last-of-type{
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 10px 60px;
+
+    img{
+      margin-right: 20px;
+    }
+
+    div{
+      text-align: left;
+
+      h5{
+        margin: 0px;
+        color: #accf29;
+        font-size: calc(18 / 16 * 100%);
+        font-weight: 900;
+      }
+
+      p{
+        margin: 5px 0px 0px;
+        line-height: 1.7;
+        font-size: calc(15 / 16 * 100%);
+        color: #333;
+
+        span{
+          color: #accf29;
+        }
+      }
+    }
+  }
+}

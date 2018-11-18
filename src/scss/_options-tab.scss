@@ -1,0 +1,61 @@
+section.options-tab {
+  header {
+    padding: 0px;
+
+    h3,
+    h4,
+    h5 {
+      margin: 0px;
+    }
+
+    h4 {
+      @extend .underlined-title;
+    }
+
+    h3 {
+      margin: 15px 0px;
+      font-weight: 400;
+      font-size: 28px;
+      color: #444;
+    }
+
+    h5 {
+      font-weight: 900;
+      margin: 15px 0px;
+      padding: 5px 0px;
+      line-break: 2;
+      cursor: help;
+
+      span {
+        color: #444;
+        font-size: 17px;
+        border-bottom: 1px #ccc dotted;
+      }
+    }
+  }
+  
+  footer{
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+
+    button {
+      @extend .default-button-style;
+
+      &:first-child{
+        @extend .dark-button;
+      }
+      
+      &:last-child{
+        @extend .green-button;
+      }
+
+      &.hide{
+        transition: none;
+        visibility: hidden;
+      }
+    }
+  }
+}

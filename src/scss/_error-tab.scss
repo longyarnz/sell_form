@@ -1,0 +1,15 @@
+section.error-tab{
+  color: #fff;
+  font-size: 18px;
+  
+  header{
+    padding: 20px;
+    background-color: #ef2323;
+    margin-bottom: 20px;
+  }
+
+  button{
+    @extend .default-button-style;
+    @extend .dark-button;
+  }
+}

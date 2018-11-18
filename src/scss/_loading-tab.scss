@@ -1,0 +1,23 @@
+section.loading-tab {
+  text-align: center;
+  position: relative;
+
+  header {
+    h4 {
+      @extend .underlined-title;
+      margin-top: 0px;
+      text-align: left;
+    }
+
+    h5 {
+      font-size: 16px;
+      color: #777;
+      margin-top: 60px;
+    }
+  }
+
+  & > div {
+    position: relative;
+    height: 417px;
+  }
+}
