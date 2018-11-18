@@ -3,7 +3,7 @@ import ShouldRender from './ShouldRender';
 import { FlatList } from './Utils';
 import ListItem from './ListItem';
 
-export default function RenderForm({ 
+export default function RenderForm({
   item, index, answers, page, waitForConfirmation, setPage, title, loadValue,
   setAnswers, setConfirmation, setAccessories, accessories, stopSurvey
 }) {
@@ -11,40 +11,34 @@ export default function RenderForm({
     let option = item.options[i];
     const newAnswers = [...answers];
 
-    if(page < 5) {
+    if (page < 5) {
       option = {
         title: typeof option === 'object' ? option.top : option,
         optionIndex: i
       };
       newAnswers[index] = option;
-      
+
       if (page < 3) {
-        if(page === 0 && i !== 1){
+        if (page === 0 && i !== 1) {
           setPage(page + 2);
           newAnswers[index + 1] = null;
         }
-        else{
+        else {
           setPage(page + 1);
         }
         setAnswers(newAnswers);
       }
-      
+
       else if (page === 3) {
-        // if(i === 0) {
-        //   loadValue(true);
-        //   setAnswers(newAnswers);
-        // }
-        // else{
-          setConfirmation({
-            index: i,
-            options: item.options[i].footer,
-            newAnswers
-          });
-        // }
+        setConfirmation({
+          index: i,
+          options: item.options[i].footer,
+          newAnswers
+        });
       }
-      
-      else if(page === 4){
-        if(i === 1) {
+
+      else if (page === 4) {
+        if (i === 1) {
           stopSurvey(true);
         }
         setAnswers(newAnswers);
@@ -53,7 +47,7 @@ export default function RenderForm({
     }
     else {
       const list = accessories ? accessories : [];
-      if(!list.some(i => i === option)){
+      if (!list.some(i => i === option)) {
         list.push(i);
       };
       newAnswers[index] = list;
@@ -67,8 +61,8 @@ export default function RenderForm({
       <header>
         <ShouldRender if={answers.length > 0}>
           <h4>
-            <strong>iPhone XR</strong>:<em> </em> 
-            { title }
+            <strong>iPhone XR</strong>:<em> </em>
+            {title}
           </h4>
         </ShouldRender>
         <h3>{item.top}</h3>
@@ -99,7 +93,7 @@ export default function RenderForm({
       </ul>
       <ShouldRender if={waitForConfirmation}>
         <div className="confirmation">
-        <strong>For a device to be in this condition. The following must also be true.</strong>
+          <strong>For a device to be in this condition. The following must also be true.</strong>
           <ul>
             <FlatList
               list={waitForConfirmation ? waitForConfirmation.options : []}

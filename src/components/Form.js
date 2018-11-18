@@ -24,7 +24,7 @@ export default function Form(props) {
       if (i > 4 || i === 1) return null;
       return answer ? answer.title : null;
     });
-    title = title.length > 2 ? `${title[0]}, ${title.slice(2).join(', ')}` : title[0];
+    title = title.length > 2 ? `${title[0]}, ${title.slice(2, 4).join(', ')}` : title[0];
     setTitle(title);
   }, [answers])
 
@@ -50,11 +50,15 @@ export default function Form(props) {
       </ShouldRender>
 
       <ShouldRender if={calculatingValue}>
-        <LoadingTab title={title} />
+        <LoadingTab 
+          title={title} 
+          finishLoading={setFormIsCompleted} 
+          continueLoading={setCalculatingValue} 
+        />
       </ShouldRender>
 
       <ShouldRender if={formIsCompleted}>
-        <SuccessTab />
+        <SuccessTab title={title} continueSurvey={() => setFormIsCompleted(false)} />
       </ShouldRender>
     </form>
   )

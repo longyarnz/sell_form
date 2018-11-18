@@ -2,20 +2,21 @@ import React from 'react';
 import { BusIcon, CashIcon } from './SVG';
 import Image from '../files/price-promise.png';
 
-export default function SuccessTab() {
+export default function SuccessTab({ title, continueSurvey }) {
   return (
     <section className="success-tab">
       <header>
         <h4>
-          <strong>iPhone XR</strong>: T-Mobile
+          <strong>iPhone XR</strong>:<em> </em>
+          { title }
         </h4>
       </header>
 
       <div>Your device is valued at</div>
       <div>$500.00</div>
       <div>
-        <button>Back</button>
-        <button>Add To Box</button>
+        <button onClick={() => continueSurvey()}>Back</button>
+        <button onClick={() => {}}>Add To Box</button>
       </div>
 
       <div>

@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Spinner from './Spinner';
 
-export default function LoadingTab({ title }) {
+export default function LoadingTab({ title, finishLoading, continueLoading }) {
+  useEffect(() => {
+    return () => clearTimeout(schedule);
+  });
+
+  const schedule = setTimeout(() => {
+    finishLoading(true);
+    continueLoading(false);
+  }, 1000);
+
   return (
     <section className="loading-tab">
       <header>
