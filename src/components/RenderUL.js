@@ -2,6 +2,7 @@ import React from 'react';
 import ShouldRender from './ShouldRender';
 import { FlatList } from './Utils';
 import ListItem from './ListItem';
+import ConfirmationTab from './ConfirmationTab';
 
 export default function RenderForm({
   item, index, answers, page, waitForConfirmation, setPage, title, loadValue,
@@ -91,17 +92,7 @@ export default function RenderForm({
           }
         />
       </ul>
-      <ShouldRender if={waitForConfirmation}>
-        <div className="confirmation">
-          <strong>For a device to be in this condition. The following must also be true.</strong>
-          <ul>
-            <FlatList
-              list={waitForConfirmation ? waitForConfirmation.options : []}
-              listView={(text, i) => <li key={`con-1${i}`}>{text}</li>}
-            />
-          </ul>
-        </div>
-      </ShouldRender>
+      <ConfirmationTab waitForConfirmation={waitForConfirmation} />
     </ShouldRender>
   )
 }

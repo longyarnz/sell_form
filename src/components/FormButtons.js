@@ -39,13 +39,18 @@ export function NextButton(props) {
           }
           else {
             if (props.confirm) {
-              props.setAnswers(props.confirm.newAnswers);
               if (props.page === 3 && props.confirm.index === 0) {
                 props.setCalculatingValue(true);
+                props.setAnswers(props.confirm.newAnswers);
+                props.setConfirmation(null);
               }
-              props.setConfirmation(null);
+              else {
+                props.setAnswers(props.confirm.newAnswers);
+                props.setConfirmation(null);
+                props.setPage(props.page + 1);
+              }
             }
-            else{
+            else {
               props.setPage(props.page + 1);
             }
           }
